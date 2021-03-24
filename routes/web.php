@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/films',FilmController::class)->middleware('auth');
+
+// rotte pubbliche
+
+Route::get('/films', 'DashboardController@index')->name('films.index');
