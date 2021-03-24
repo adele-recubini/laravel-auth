@@ -20,10 +20,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/films',FilmController::class)->middleware('auth');
+Route::resource('/films',FilmController::class)->middleware('auth'); //cosi metto tutto in login quello che voglio sbloccare sarà in un controller
+                                                                     //denominato nel mio cado dashboard e con una rotta a parte vedi rotte pubbliche
 
 // rotte pubbliche
 
 Route::get('/films', 'DashboardController@index')->name('films.index');
+
+
+Route::prefix('admin')
+->namespace('Admin')
+->middleware('auth')
+->group(function () {
+    Route::resource('/films',FilmController::class);
+});
