@@ -6,12 +6,12 @@
         <link rel="stylesheet" href="{{asset('css/app.css') }}" type="text/css">
         <script src="{{ asset('js/app.js') }}"></script>
 
-        <title>Birre</title>
+        <title>Film</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-      <h1>BIRRE</h1>
+      <h1>film</h1>
 
       {{-- creo la tabella e riporto tutte le proprietà della tabella, faccio diventare un link il name in modo tale che se clicco mi reindirizza nella route dove ho il singolo prodotto passandogli l id--}}
 
@@ -40,9 +40,10 @@
 
 
        <td>
+        @if(Auth::check())
          <a href="{{ route('films.show', compact('film'))}}">
          <button type="button" name="button">SHOW</button></a>
-
+        @endif
      </td>
 
 
