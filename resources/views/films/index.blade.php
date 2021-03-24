@@ -40,10 +40,10 @@
 
 
        <td>
-        @if(Auth::check())
+
          <a href="{{ route('films.show', compact('film'))}}">
          <button type="button" name="button">SHOW</button></a>
-        @endif
+
      </td>
 
 

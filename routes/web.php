@@ -27,7 +27,7 @@ Route::resource('/films',FilmController::class)->middleware('auth'); //cosi mett
 
 // rotte pubbliche
 
-Route::get('/films', 'DashboardController@index')->name('films.index');
+Route::get('/films', 'DashboardController@index')->name('public.films.index');
 
 
 Route::prefix('admin')
