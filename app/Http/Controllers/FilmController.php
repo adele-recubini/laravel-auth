@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Film;
+
+
 class FilmController extends Controller
 {
     /**
@@ -13,7 +16,9 @@ class FilmController extends Controller
      */
     public function index()
     {
-        //
+        $films = Film::all();
+
+        return view('films.index', compact('films'));
     }
 
     /**
@@ -40,12 +45,12 @@ class FilmController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $films
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Film $films)
     {
-        //
+        return view('films.show', compact('films'));
     }
 
     /**
